@@ -1,3 +1,14 @@
+## Packages (all packages were loaded ahead)
+library(tidyverse)
+library(gridExtra)
+library(psych)
+library(lm.beta)
+library(car)
+library(sandwich)
+library(boot)
+library(lmboot)
+
+## Data set 1
 data_sample_1 = read.csv("https://tinyurl.com/ha-dataset1")
 View(data_sample_1)
 summary(data_sample_1)
@@ -163,7 +174,7 @@ AIC(theorymodel)
 
 anova(backwardmodel, theorymodel)
 
-## Applied to second data
+## Applied to second data set
 data_sample_2=read.csv("https://tinyurl.com/ha-dataset2")
 backwardmodel<- lm(pain ~ sex + household_income + mindfulness + age + pain_cat + cortisol_serum, data=data_sample_2)
 theorymodel<- lm(pain ~ age + sex+ STAI_trait + pain_cat + mindfulness + cortisol_serum, data=data_sample_2)
